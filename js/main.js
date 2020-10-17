@@ -1,72 +1,59 @@
 "use strict";
-function showFirstMessage(text) {
-    console.log(text);
+
+// Урок 26. Динамическая типизация
+
+// To String
+console.log(typeof(String(null)));
+console.log(typeof(String(null)));
+const num = 5;
+console.log();
+
+// To Number
+console.log(typeof(Number('hdg'))); /*- используют редко, так как есть унарный плюс */
+console.log(typeof(+'hdg')); /*- унарный плюс */
+console.log(typeof(parseInt('27px' + 23)));
+
+// To Boolean
+let switcher = null;
+if (switcher){
+    console.log('Working..'); 
 }
-showFirstMessage('Hello World');
-
-// function calc(a, b) {
-//     return (a + b);
-// }
-// console.log(calc(5, 5));
-
-// Declaration function
-function ret() {
-    let num = 50;
-    return 50;
+switcher = 5;
+if (switcher){
+    console.log('Working..'); 
 }
-const anotherNum = ret();
-console.log(anotherNum);
 
-// Expression function
-const logger = function(){
-    console.log('Hello');
-};
-logger();
+console.log(typeof(Boolean('7')));
 
-// Стрелочные функции
-const calc = (a, b) => {
-    console.log('1', '5');
-    return a + b;
-};
-calc();
+console.log(typeof(!!'734'));
 
-const str = 'test';
-console.log(str.toUpperCase());
+// Все, что мы получаем от пользователя, приходить в виде строки
+// false - 0, '', null, undefined, NaN;
 
-const logg = "Hello World";
-console.log(logg.slice(3, 7));
-console.log(logg.substring(3, 7));
-console.log(logg.substr(6, 3));
-
-const num = 12.3;
-console.log(Math.round(num));
-
-const test = '12.6px';
-console.log(parseInt(test));
-
-// Я ввожу число в prompt -> в бд igor: 
-// Если число меньше 20, вносишь число иначе false;
-
-const personalMovieDB = {
-    count:  0,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-};
-function igor(){
-    // Ввожу число
-    let numb = +prompt('Введите число');
-
-    // isNan = не число
-    // !isNan = не не число = число
-
-    if(numb != "" && numb < 20 && !isNaN(numb)){
-        personalMovieDB.igor = numb;
-
-    } else{
-        personalMovieDB.igor = false;
-    }
-    console.log(personalMovieDB.igor);
-}
-igor();
+// Урок 26. Задачи с собеседований
+/*Какое будет выведено значение: let x = 5; alert( x++ ); ? 
+    5
+ Чему равно такое выражение: [ ] + false - null + true ?
+    NaN
+ Что выведет этот код: let y = 1; let x = y = 2; alert(x); ? 
+    2
+ Чему равна сумма [ ] + 1 + 2? 
+    12
+ Что выведет этот код: alert( '1'[0] )?
+    1
+ Чему равно 2 && 1 && null && 0 && undefined?
+    null  - && запинается на лжи
+            ||  запинается на правде
+ Есть ли разница между выражениями? !!(a && b) (a && b)?
+    yes 
+ Что выведет этот код: alert( null || 2 && 3 || 4 ); ?
+   3 -  Нужно посмотреть в таблицу преоритетов операторов
+ a = [1, 2, 3]; b = [1, 2, 3]; Правда ли что a == b ?
+    а не равно b,  это две разные переменные с одинаковым содержанием
+ Что выведет этот код: alert( +'Infinity'); ?
+    Infinity (number)
+ Верно ли сравнение: 'Ёжик' > 'яблоко' ?
+    false
+ Чему равно 0 || '' || 2 || undefined || true || falsе ? 
+    2
+*/
